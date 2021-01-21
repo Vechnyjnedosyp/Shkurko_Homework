@@ -17,6 +17,7 @@ public class Main {
                 case 2:color.mixOfColors();
                     break;
             }
+            input.close();
         } else {
             System.out.println("You entered an incorrect value, restart the program.");
         }
