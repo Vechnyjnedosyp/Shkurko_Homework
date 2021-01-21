@@ -10,6 +10,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         System.out.println("Please, enter 1 or 2 for print your color(s):");
         final int SELECT_NUMBERS = input.nextInt();
+        input.close();
         if (SELECT_NUMBERS <= 2 && SELECT_NUMBERS != 0){
             switch (SELECT_NUMBERS) {
                 case 1:color.oneColor();
@@ -17,7 +18,6 @@ public class Main {
                 case 2:color.mixOfColors();
                     break;
             }
-            input.close();
         } else {
             System.out.println("You entered an incorrect value, restart the program.");
         }
