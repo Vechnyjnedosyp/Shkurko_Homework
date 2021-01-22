@@ -6,11 +6,10 @@ public class Main {
 
     public static void main (String [] args){
 
-        Rainbow color = new Rainbow();
-        Scanner input = new Scanner(System.in);
         System.out.println("Please, enter 1 or 2 for print your color(s):");
+        Scanner input = new Scanner(System.in);
         int SELECT_NUMBERS = input.nextInt();
-        input.close();
+        Rainbow color = new Rainbow();
         if (SELECT_NUMBERS <= 2 && SELECT_NUMBERS != 0){
             switch (SELECT_NUMBERS) {
                 case 1:color.oneColor();

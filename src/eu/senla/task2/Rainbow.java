@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class Rainbow {
 
-     final static String [] COLORS = {"red", "orange", "yellow", "green", "light blue", "blue", "purple"};
-     Scanner input = new Scanner(System.in);
+     private final String [] COLORS = {"red", "orange", "yellow", "green", "light blue", "blue", "purple"};
+
 
      public void oneColor(){
           System.out.println("Please, enter one number of color from 1 to 7:");
-
+          Scanner input = new Scanner(System.in);
           int oneNumber = input.nextInt();
           input.close();
           if (oneNumber != 0 && oneNumber < 8) {
@@ -22,6 +22,7 @@ public class Rainbow {
      public void mixOfColors(){
           System.out.println("Please, enter first and second numbers of colors from 1 to 7.");
           System.out.println("First number:");
+          Scanner input = new Scanner(System.in);
           int firstNumber = input.nextInt();
           System.out.println("Second number:");
           int secondNumber = input.nextInt();
