@@ -9,7 +9,7 @@ public class Main {
         Rainbow color = new Rainbow();
         Scanner input = new Scanner(System.in);
         System.out.println("Please, enter 1 or 2 for print your color(s):");
-        final int SELECT_NUMBERS = input.nextInt();
+        int SELECT_NUMBERS = input.nextInt();
         input.close();
         if (SELECT_NUMBERS <= 2 && SELECT_NUMBERS != 0){
             switch (SELECT_NUMBERS) {
