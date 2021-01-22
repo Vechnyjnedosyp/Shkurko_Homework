@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Rainbow {
 
-     public final String [] COLORS = {"red", "orange", "yellow", "green", "light blue", "blue", "purple"};
+     final static String [] COLORS = {"red", "orange", "yellow", "green", "light blue", "blue", "purple"};
      Scanner input = new Scanner(System.in);
 
      public void oneColor(){
