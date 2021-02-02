@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class Rainbow {
 
-     private final String [] COLORS = {"red", "orange", "yellow", "green", "light blue", "blue", "purple"};
+     private static String [] COLORS = {"red", "orange", "yellow", "green", "light blue", "blue", "purple"};
 
 
-     public void oneColor(){
+     public void getOneColor(){
           System.out.println("Please, enter one number of color from 1 to 7:");
           Scanner input = new Scanner(System.in);
           int oneNumber = input.nextInt();
@@ -19,7 +19,7 @@ public class Rainbow {
                System.out.println("You entered an incorrect value, restart the program.");
           }
      }
-     public void mixOfColors(){
+     public void getMixOfColors(){
           System.out.println("Please, enter first and second numbers of colors from 1 to 7.");
           System.out.println("First number:");
           Scanner input = new Scanner(System.in);

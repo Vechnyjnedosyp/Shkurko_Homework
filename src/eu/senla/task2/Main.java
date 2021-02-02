@@ -12,9 +12,9 @@ public class Main {
         Rainbow color = new Rainbow();
         if (SELECT_NUMBERS <= 2 && SELECT_NUMBERS != 0){
             switch (SELECT_NUMBERS) {
-                case 1:color.oneColor();
+                case 1:color.getOneColor();
                     break;
-                case 2:color.mixOfColors();
+                case 2:color.getMixOfColors();
                     break;
             }
         } else {
