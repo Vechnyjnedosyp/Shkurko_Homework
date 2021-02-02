@@ -3,10 +3,9 @@ package eu.senla.task3;
 import java.util.ArrayList;
 import java.util.Objects;
 
-
 public class Cat {
-    private String name = "Kitty";
-    private int catAge = 1;
+    private String name;
+    private Integer catAge;
     private final ArrayList <String> nameCat;
 
     {
@@ -46,6 +45,8 @@ public class Cat {
     }
 
     public Cat() {
+        name = "Kitty";
+        catAge = 0;
     }
 
     @Override
@@ -61,7 +62,7 @@ public class Cat {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cat cat = (Cat) o;
-        return catAge == cat.catAge && name.equals(cat.name);
+        return catAge.equals(cat.catAge) && name.equals(cat.name);
     }
 
    @Override
@@ -97,11 +98,11 @@ public class Cat {
 
     public void secondTenCats() {
         for ( int i = 1; i <= 10 ; i++ ){
-            Cat secondTenCats = new Cat(); // пересоздавала обьект, присваивая новые значения переменным | P.S. Насколько поняла, задание заключалось в том, чтобы вывести значения переменных 10-ти котиков в консоль
+            Cat secondTenCats = new Cat();
             secondTenCats.setCatAge(1 + (int) (Math.random() * 15));
             secondTenCats.setName(nameCat.get((int) (Math.random() * 30)));
             System.out.println(2 + "." + i + " Cat " + "name is " + secondTenCats.getName() +
-                    " and his(her) age " + secondTenCats.getCatAge() + '.'); // вывод в консоль делала и через toString, но в данном цикле было условие работы через getters & setters
+                    " and his(her) age " + secondTenCats.getCatAge() + '.');
         }
         System.out.println("\t");
     }
@@ -133,7 +134,7 @@ public class Cat {
             lastFiveCats[i] = new Cat (name, catAge);
         }
         int numberLastCats = 1;
-        for ( Cat i: lastFiveCats) { // foreach используется только для чтения массива, но не для записи в него; отличается от for отсутствием явного счетчика
+        for ( Cat i: lastFiveCats) {
             System.out.print(4 + "." + numberLastCats);
             System.out.println(i);
             numberLastCats++;
