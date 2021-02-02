@@ -59,7 +59,7 @@ public class Matrix {
         return sideDiagonal;
     }
 
-    public void comparisonOfDiagonals() {
+    public void compareOfDiagonals() {
         System.out.println("Тhe result of comparison two diagonals is " + Arrays.equals(mainDiagonal, sideDiagonal) + ".");
         System.out.println();
     }

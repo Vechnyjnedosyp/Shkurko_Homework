@@ -8,7 +8,7 @@ public class Main {
         mainMatrix.matrix();
         mainMatrix.mainDiagonal();
         mainMatrix.sideDiagonal();
-        mainMatrix.comparisonOfDiagonals();
+        mainMatrix.compareOfDiagonals();
         mainMatrix.transformationOfStrings();
         mainMatrix.printMatrix();
 
