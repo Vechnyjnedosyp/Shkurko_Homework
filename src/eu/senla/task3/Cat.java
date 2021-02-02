@@ -1,6 +1,7 @@
 package eu.senla.task3;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class Cat {
@@ -60,10 +61,10 @@ public class Cat {
         return catAge == cat.catAge && name.equals(cat.name);
     }
 
-   /* @Override
+   @Override
     public int hashCode() {
         return Objects.hash(name, catAge);
-    }*/
+    }
 
     public void firstTenCats() {
         int index = 1;
