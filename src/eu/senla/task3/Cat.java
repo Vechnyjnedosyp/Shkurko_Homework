@@ -74,22 +74,14 @@ public class Cat {
         int index = 1;
         while (index <= 10) {
             Cat firstTenCats = new Cat();
-            System.out.println(1 + "." + index + firstTenCats.toString());
+            System.out.println(1 + "." + index + firstTenCats);
             index++;
         }
         System.out.println("\t");
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getCatAge() {
-        return catAge;
     }
 
     public void setCatAge(int catAge) {
@@ -101,13 +93,10 @@ public class Cat {
             Cat secondTenCats = new Cat();
             secondTenCats.setCatAge(1 + (int) (Math.random() * 15));
             secondTenCats.setName(nameCat.get((int) (Math.random() * 30)));
-            System.out.println(2 + "." + i + " Cat " + "name is " + secondTenCats.getName() +
-                    " and his(her) age " + secondTenCats.getCatAge() + '.');
+            System.out.println(2 + "." + i + secondTenCats);
         }
         System.out.println("\t");
     }
-
-
 
     public Cat(String name, int catAge) {
         this.name = name;
@@ -120,7 +109,7 @@ public class Cat {
             name = nameCat.get((int) (Math.random() * 30));
             catAge = 1 + (int) (Math.random() * 15);
             Cat thirdTenCats = new Cat(name, catAge);
-            System.out.println(3 + "." + index + thirdTenCats.toString());
+            System.out.println(3 + "." + index + thirdTenCats);
             index++;
         } while (index <= 10);
         System.out.println("\t");
