@@ -5,9 +5,9 @@ public class Main {
     public static void main(String[] args) {
 
         Matrix mainMatrix = new Matrix();
-        mainMatrix.matrix();
-        mainMatrix.mainDiagonal();
-        mainMatrix.sideDiagonal();
+        mainMatrix.getMatrix();
+        mainMatrix.getMainDiagonal();
+        mainMatrix.getSideDiagonal();
         mainMatrix.compareOfDiagonals();
         mainMatrix.transformationOfStrings();
         mainMatrix.printMatrix();

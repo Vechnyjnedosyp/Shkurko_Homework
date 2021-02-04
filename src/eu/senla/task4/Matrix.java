@@ -9,7 +9,7 @@ public class Matrix {
     private String[] mainDiagonal;
     private String[] sideDiagonal;
 
-    public String[][] matrix() {
+    public void getMatrix() {
         this.matrix = new String[10][10];
         String symbols = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
         StringBuilder mixLetters;
@@ -27,36 +27,25 @@ public class Matrix {
                 }
             }
         }
-        return matrix;
     }
 
-    public String[] mainDiagonal() {
+    public void getMainDiagonal() {
         this.mainDiagonal = new String[matrix.length];
         for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (i == j) {
-                    mainDiagonal[i] = matrix[i][j];
-                }
-            }
+            mainDiagonal[i] = matrix[i][i];
         }
         System.out.println("This is main diagonal ");
         System.out.println(Arrays.toString(mainDiagonal));
-        return mainDiagonal;
     }
 
-    public String[] sideDiagonal() {
+    public void getSideDiagonal() {
         this.sideDiagonal = new String[matrix.length];
         for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (i == matrix.length - j - 1 && j == matrix.length - i - 1) {
-                    sideDiagonal[j] = matrix[i][j];
-                }
-            }
+            sideDiagonal[i] = matrix[matrix.length - i - 1][i];
         }
         System.out.println("This is side diagonal ");
         System.out.println(Arrays.toString(sideDiagonal));
         System.out.println();
-        return sideDiagonal;
     }
 
     public void compareOfDiagonals() {
@@ -65,25 +54,32 @@ public class Matrix {
     }
 
     public void transformationOfStrings() {
-        ArrayList<Long> num = new ArrayList<>();
+        ArrayList<Double> transNum = new ArrayList<>();
         StringBuilder str = new StringBuilder();
         for (int i = 0; i < mainDiagonal.length; i++) {
             if (mainDiagonal[i].indexOf('.') != -1 && sideDiagonal[i].indexOf('.') != -1) {
-                num.add(Math.round(Double.parseDouble(mainDiagonal[i])));
-                num.add(Math.round(Double.parseDouble(sideDiagonal[i])));
+                double valueMain = (Double.parseDouble(mainDiagonal[i]));
+                double valueSide = (Double.parseDouble(sideDiagonal[i]));
+                if (valueMain >= 1.7 || valueSide >= 1.7 ){
+                    transNum.add(Math.ceil(valueMain));
+                    transNum.add(Math.ceil(valueSide));
+                } else {
+                    transNum.add(Math.floor(valueMain));
+                    transNum.add(Math.floor(valueSide));
+                }
             } else {
-                str.append(mainDiagonal[i], 1, 5);
-                str.append(sideDiagonal[i], 1, 5);
+                str.append(mainDiagonal[i], 1,4);
+                str.append(sideDiagonal[i], 1,4);
             }
         }
 
         System.out.println("Result of converting numbers of type Double: ");
 
-        for (int i = 0; i < num.size(); i++) {
-            if (i != num.size() - 1) {
-                System.out.print(num.get(i) + "_");
+        for (int i = 0; i < transNum.size(); i++) {
+            if (i != transNum.size() - 1) {
+                System.out.print(transNum.get(i) + "_");
             } else {
-                System.out.print(num.get(i));
+                System.out.print(transNum.get(i));
             }
         }
 
