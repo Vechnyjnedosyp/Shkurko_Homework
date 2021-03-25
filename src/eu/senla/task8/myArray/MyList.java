@@ -1,5 +1,8 @@
 package eu.senla.task8.myArray;
 
+import eu.senla.task8.myException.MyArrayIndexOutOfBoundsException;
+import eu.senla.task8.myException.MyIllegalArgumentException;
+
 import java.util.Comparator;
 import java.util.ListIterator;
 
@@ -24,7 +27,6 @@ public interface MyList <E> {
     int lastIndexOf(E obj);
 
     ListIterator<E> listIterator();
-    // возвращает ListIterator для обхода элементов списка
 
     @SafeVarargs
     static <E> MyList<E> of(E... objects) {
@@ -35,14 +37,13 @@ public interface MyList <E> {
         return myList;
     }
 
-
     E remove(int index);
 
     E set(int index, E obj);
 
     void sort(Comparator<? super E> comp);
 
-    MyList<E> subList(int start, int end);
+    MyList<E> subList(int start, int end) throws MyArrayIndexOutOfBoundsException, MyIllegalArgumentException;
 
     boolean checkIfListFull();
 

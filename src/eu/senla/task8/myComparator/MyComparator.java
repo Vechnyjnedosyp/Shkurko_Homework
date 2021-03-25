@@ -1,4 +1,4 @@
-package eu.senla.task8.myArray;
+package eu.senla.task8.myComparator;
 
 import java.util.Comparator;
 
