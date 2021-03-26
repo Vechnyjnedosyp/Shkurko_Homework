@@ -1,8 +1,8 @@
 package eu.senla.task8.myArray;
 
-import eu.senla.task8.myException.MyArrayIndexOutOfBoundsException;
-import eu.senla.task8.myException.MyIllegalArgumentException;
-import eu.senla.task8.myException.MyNegativeArraySizeException;
+import eu.senla.task8.myExceptions.MyArrayIndexOutOfBoundsException;
+import eu.senla.task8.myExceptions.MyIllegalArgumentException;
+import eu.senla.task8.myExceptions.MyNegativeArraySizeException;
 import java.util.*;
 
 public class MyArrayList <E> implements MyList <E> {
@@ -54,12 +54,12 @@ public class MyArrayList <E> implements MyList <E> {
         if (checkIfListFull()) {
             growList();
         }
-
-        for (int i = elementsInList; i >= 0; i--) {
-            if (i > index){
-                set(i, get(i-1));
+        for (int i = elementsInList; i > 0; i--) {
+            if (i > index && index != 0){
+                set(i, get(i - 1));
+            } else {
+                set(i, get(i));
             }
-            set(i, get(i));
         }
 
         set(index, obj);
@@ -69,7 +69,7 @@ public class MyArrayList <E> implements MyList <E> {
     @Override
     public void growList() {
         E[] temp = elements;
-        elements = (E[]) new Object[(int) (temp.length * 1.75)];
+        elements = (E[]) new Object[temp.length + 1]; // *2
 
         for (int i = 0; i < temp.length; i++) {
             set(i, temp[i]);
@@ -78,17 +78,22 @@ public class MyArrayList <E> implements MyList <E> {
 
     @Override
     public boolean addAll(int index, MyList<? extends E> col) {
-            if (checkIfListFull()) {
-                growList();
+
+        int previousSize = size();
+        int previousElements = elementInList();
+
+        if (checkIfListFull()) {
+            growList();
+        }
+        if(elements.length == 0){
+            for (int i = 0; i < col.size(); i++) {
+                add(col.get(i));
             }
-
-            int previousSize = size();
-            int previousElements = elementInList();
-
-            for (int i = 0; i < col.size(); i++){
+        } else {
+            for (int i = 0; i < col.size(); i++) {
                 add(index, col.get(i));
-                index++;
-            }
+            } index++;
+        }
 
         return previousSize != size() || previousElements != elementInList();
     }

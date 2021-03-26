@@ -1,4 +1,4 @@
-package eu.senla.task8.myException;
+package eu.senla.task8.myExceptions;
 
 public class MyIllegalArgumentException extends Exception{
 

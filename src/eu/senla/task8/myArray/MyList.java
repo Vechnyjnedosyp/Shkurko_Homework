@@ -1,7 +1,7 @@
 package eu.senla.task8.myArray;
 
-import eu.senla.task8.myException.MyArrayIndexOutOfBoundsException;
-import eu.senla.task8.myException.MyIllegalArgumentException;
+import eu.senla.task8.myExceptions.MyArrayIndexOutOfBoundsException;
+import eu.senla.task8.myExceptions.MyIllegalArgumentException;
 
 import java.util.Comparator;
 import java.util.ListIterator;

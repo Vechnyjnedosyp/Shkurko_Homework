@@ -2,17 +2,13 @@ package eu.senla.task8.main;
 
 import eu.senla.task8.myArray.MyArrayList;
 import eu.senla.task8.myArray.MyList;
-import eu.senla.task8.myException.MyArrayIndexOutOfBoundsException;
-import eu.senla.task8.myException.MyIllegalArgumentException;
-import eu.senla.task8.myException.MyNegativeArraySizeException;
-
-import java.util.Comparator;
-import java.util.ListIterator;
+import eu.senla.task8.myExceptions.MyArrayIndexOutOfBoundsException;
+import eu.senla.task8.myExceptions.MyIllegalArgumentException;
+import eu.senla.task8.myExceptions.MyNegativeArraySizeException;
 
 public class Test {
 
     public static void main(String[] args) {
-
 
 //        MyList<String> animal = new MyArrayList<>();
 //        animal.add("cat");
@@ -21,10 +17,11 @@ public class Test {
 //        animal.add("fox");
 //
 //        MyArrayList<String> rave = new MyArrayList<>(animal);
-//        System.out.println(rave);
+//
 //        System.out.println("Размер списка " + rave.size());
 //        System.out.println("Количество заполненных ячеек " + rave.elementInList());
-//
+
+
 //
 //        rave.add("monday");
 //        rave.add("tuesday");
@@ -127,7 +124,6 @@ public class Test {
     private void finallyMessage() {
         System.err.println("Exception worked. If you want to try again, JUST DO IT!" + "\n");
     }
-
 
     private void firstException() {
         try {
