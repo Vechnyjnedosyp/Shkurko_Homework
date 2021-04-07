@@ -35,8 +35,15 @@ public class MyArrayList <E> implements MyList <E> {
 
     @Override
     public void add(E obj) {
+        if (checkIfListFull()) {
+            growList();
+        }
         E[] temp = elements;
-        elements = (E[]) new Object[temp.length + 1];
+        if (size() == 0) {
+            elements = (E[]) new Object[temp.length + 1];
+        } else {
+            elements = (E[]) new Object[temp.length];
+        }
 
         for (int i = 0; i < temp.length; i++) {
             set(i, temp[i]);
@@ -69,7 +76,7 @@ public class MyArrayList <E> implements MyList <E> {
     @Override
     public void growList() {
         E[] temp = elements;
-        elements = (E[]) new Object[temp.length + 1]; // *2
+        elements = (E[]) new Object[temp.length * 2]; // *2
 
         for (int i = 0; i < temp.length; i++) {
             set(i, temp[i]);
@@ -85,16 +92,14 @@ public class MyArrayList <E> implements MyList <E> {
         if (checkIfListFull()) {
             growList();
         }
-        if(elements.length == 0){
-            for (int i = 0; i < col.size(); i++) {
+        for (int i = 0; i < col.size(); i++) {
+            if (elements.length == 0) {
                 add(col.get(i));
-            }
-        } else {
-            for (int i = 0; i < col.size(); i++) {
+            } else {
                 add(index, col.get(i));
-            } index++;
+            }
+            index++;
         }
-
         return previousSize != size() || previousElements != elementInList();
     }
 
@@ -149,7 +154,7 @@ public class MyArrayList <E> implements MyList <E> {
 
             @Override
             public boolean hasNext() {
-                return nextIndex < size() && get(nextIndex) != null;
+                return nextIndex < size();
             }
 
             @Override
@@ -159,7 +164,7 @@ public class MyArrayList <E> implements MyList <E> {
 
             @Override
             public boolean hasPrevious() {
-                return previousIndex >= 0 && get(previousIndex) != null;
+                return previousIndex >= 0;
             }
 
             @Override
@@ -208,7 +213,12 @@ public class MyArrayList <E> implements MyList <E> {
             }
         }
 
-        set(elementsInList, null);
+        E[] temp = elements;
+        elements = (E[]) new Object[temp.length - 1];
+
+        for (int i = 0; i < elements.length; i++) {
+            set(i, temp[i]);
+        }
         return remove;
     }
 
